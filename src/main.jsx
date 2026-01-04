@@ -1,26 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import './index.css'
-import App from './App.jsx'
-import Home from './pages/Home.jsx'
-import Gallery from './pages/Gallery.jsx'
-import About from './pages/About.jsx'
-import Services from './pages/Services.jsx'
-import Contact from './pages/Contact.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <App />,
-		children: [
-			{ index: true, element: <Home /> },
-			{ path: 'gallery', element: <Gallery /> },
-			{ path: 'about', element: <About /> },
-			{ path: 'services', element: <Services /> },
-			{ path: 'contact', element: <Contact /> },
-		],
+		element: <Navigate to="/dashboard" replace />,
 	},
 	{
 		path: '/dashboard',
@@ -41,6 +28,10 @@ const router = createBrowserRouter([
 	{
 		path: '/dashboard/settings',
 		element: <Dashboard />,
+	},
+	{
+		path: '*',
+		element: <Navigate to="/dashboard" replace />,
 	},
 ])
 
