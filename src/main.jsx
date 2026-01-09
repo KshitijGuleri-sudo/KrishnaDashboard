@@ -2,15 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import './index.css'
-import { AuthProvider } from './context/AuthContext.jsx'
-import ProtectedRoute from './components/auth/ProtectedRoute.jsx'
-import Login from './pages/Login.jsx'
-import Register from './pages/Register.jsx'
-import Unauthorized from './pages/Unauthorized.jsx'
-import Dashboard from './pages/Dashboard.jsx'
-import AdminDashboard from './pages/admin/AdminDashboard.jsx'
-import EditorDashboard from './pages/editor/EditorDashboard.jsx'
-import ClientDashboard from './pages/client/ClientDashboard.jsx'
+import SimpleLogin from './pages/SimpleLogin.jsx'
+import AdminDashboardPage from './pages/AdminDashboardPage.jsx'
+import EditorDashboardPage from './pages/EditorDashboardPage.jsx'
+import ClientDashboardPage from './pages/ClientDashboardPage.jsx'
 
 const router = createBrowserRouter([
 	{
@@ -19,47 +14,19 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/login',
-		element: <Login />,
+		element: <SimpleLogin />,
 	},
 	{
-		path: '/register',
-		element: <Register />,
+		path: '/admin-dashboard',
+		element: <AdminDashboardPage />,
 	},
 	{
-		path: '/unauthorized',
-		element: <Unauthorized />,
+		path: '/editor-dashboard',
+		element: <EditorDashboardPage />,
 	},
 	{
-		path: '/dashboard',
-		element: (
-			<ProtectedRoute>
-				<Dashboard />
-			</ProtectedRoute>
-		),
-	},
-	{
-		path: '/admin',
-		element: (
-			<ProtectedRoute requiredRole="admin">
-				<AdminDashboard />
-			</ProtectedRoute>
-		),
-	},
-	{
-		path: '/editor',
-		element: (
-			<ProtectedRoute requiredRole="editor">
-				<EditorDashboard />
-			</ProtectedRoute>
-		),
-	},
-	{
-		path: '/client',
-		element: (
-			<ProtectedRoute requiredRole="client">
-				<ClientDashboard />
-			</ProtectedRoute>
-		),
+		path: '/client-dashboard',
+		element: <ClientDashboardPage />,
 	},
 	{
 		path: '*',
