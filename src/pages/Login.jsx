@@ -64,17 +64,17 @@ export default function Login() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-royal-cream mb-2">
+              <label className="block text-sm font-semibold text-white mb-2">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold/60" />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold" />
                 <input
                   type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-white/20 border-2 border-royal-gold rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-royal-gold-light focus:border-royal-gold-light focus:bg-white/30 transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-white border-3 border-royal-gold rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-royal-gold/50 focus:border-royal-gold-light shadow-lg transition-all"
                   placeholder="admin@example.com"
                 />
               </div>
@@ -82,17 +82,17 @@ export default function Login() {
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-royal-cream mb-2">
+              <label className="block text-sm font-semibold text-white mb-2">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold/60" />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold" />
                 <input
                   type="password"
                   required
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-white/20 border-2 border-royal-gold rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-royal-gold-light focus:border-royal-gold-light focus:bg-white/30 transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-white border-3 border-royal-gold rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-royal-gold/50 focus:border-royal-gold-light shadow-lg transition-all"
                   placeholder="••••••••"
                 />
               </div>

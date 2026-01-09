@@ -73,15 +73,15 @@ export default function Register() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name */}
             <div>
-              <label className="block text-sm font-medium text-royal-cream mb-2">Full Name</label>
+              <label className="block text-sm font-semibold text-white mb-2">Full Name</label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold/60" />
+                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold" />
                 <input
                   type="text"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-white/20 border-2 border-royal-gold rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-royal-gold-light focus:border-royal-gold-light focus:bg-white/30 transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-white border-3 border-royal-gold rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-royal-gold/50 focus:border-royal-gold-light shadow-lg transition-all"
                   placeholder="John Doe"
                 />
               </div>
@@ -89,15 +89,15 @@ export default function Register() {
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-royal-cream mb-2">Email</label>
+              <label className="block text-sm font-semibold text-white mb-2">Email</label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold/60" />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold" />
                 <input
                   type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-white/20 border-2 border-royal-gold rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-royal-gold-light focus:border-royal-gold-light focus:bg-white/30 transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-white border-3 border-royal-gold rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-royal-gold/50 focus:border-royal-gold-light shadow-lg transition-all"
                   placeholder="john@example.com"
                 />
               </div>
@@ -105,15 +105,15 @@ export default function Register() {
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-royal-cream mb-2">Password</label>
+              <label className="block text-sm font-semibold text-white mb-2">Password</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold/60" />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold" />
                 <input
                   type="password"
                   required
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-white/20 border-2 border-royal-gold rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-royal-gold-light focus:border-royal-gold-light focus:bg-white/30 transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-white border-3 border-royal-gold rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-royal-gold/50 focus:border-royal-gold-light shadow-lg transition-all"
                   placeholder="••••••••"
                 />
               </div>
@@ -121,15 +121,15 @@ export default function Register() {
 
             {/* Confirm Password */}
             <div>
-              <label className="block text-sm font-medium text-royal-cream mb-2">Confirm Password</label>
+              <label className="block text-sm font-semibold text-white mb-2">Confirm Password</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold/60" />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-royal-gold" />
                 <input
                   type="password"
                   required
                   value={formData.confirmPassword}
                   onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-white/20 border-2 border-royal-gold rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-royal-gold-light focus:border-royal-gold-light focus:bg-white/30 transition-all"
+                  className="w-full pl-12 pr-4 py-4 bg-white border-3 border-royal-gold rounded-xl text-gray-900 font-medium placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-royal-gold/50 focus:border-royal-gold-light shadow-lg transition-all"
                   placeholder="••••••••"
                 />
               </div>
