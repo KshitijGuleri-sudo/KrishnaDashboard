@@ -74,7 +74,7 @@ export default function Login() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-white/10 border border-royal-gold/30 rounded-lg text-white placeholder-royal-cream/50 focus:outline-none focus:ring-2 focus:ring-royal-gold focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-white/20 border-2 border-royal-gold rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-royal-gold-light focus:border-royal-gold-light focus:bg-white/30 transition-all"
                   placeholder="admin@example.com"
                 />
               </div>
@@ -92,7 +92,7 @@ export default function Login() {
                   required
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-white/10 border border-royal-gold/30 rounded-lg text-white placeholder-royal-cream/50 focus:outline-none focus:ring-2 focus:ring-royal-gold focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-white/20 border-2 border-royal-gold rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-royal-gold-light focus:border-royal-gold-light focus:bg-white/30 transition-all"
                   placeholder="••••••••"
                 />
               </div>
