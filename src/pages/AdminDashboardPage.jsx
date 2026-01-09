@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getProjects, createProject, updateProject, deleteProject } from '../utils/localStorage';
+import { getProjects, createProject, updateProject, deleteProject, initializeSeedData } from '../utils/localStorage';
 
 export default function AdminDashboardPage() {
   const navigate = useNavigate();
@@ -35,7 +35,9 @@ export default function AdminDashboardPage() {
   }, []);
 
   const loadProjects = () => {
-    setProjects(getProjects());
+    initializeSeedData(); // Ensure we have sample data
+    const allProjects = getProjects();
+    setProjects(allProjects);
   };
 
   const handleLogout = () => {
@@ -54,7 +56,7 @@ export default function AdminDashboardPage() {
   };
 
   const handleDelete = (id) => {
-    if (confirm('Delete this project?')) {
+    if (window.confirm('Delete this project?')) {
       deleteProject(id);
       loadProjects();
     }
@@ -176,7 +178,8 @@ export default function AdminDashboardPage() {
                     <input
                       type="checkbox"
                       checked={project.paymentDone}
-                      onChange={() => {
+                      onChange={(e) => {
+                        e.stopPropagation();
                         updateProject(project.id, { paymentDone: !project.paymentDone });
                         loadProjects();
                       }}

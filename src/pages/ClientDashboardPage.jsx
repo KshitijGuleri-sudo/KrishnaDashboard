@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getProjects } from '../utils/localStorage';
+import { getProjects, initializeSeedData } from '../utils/localStorage';
 
 export default function ClientDashboardPage() {
   const navigate = useNavigate();
@@ -24,6 +24,7 @@ export default function ClientDashboardPage() {
         return;
       }
       setUser(userData);
+      initializeSeedData(); // Ensure we have sample data
       setProjects(getProjects());
     } catch (error) {
       console.error('Error parsing user data:', error);

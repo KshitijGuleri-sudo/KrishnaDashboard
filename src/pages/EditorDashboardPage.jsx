@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getProjects, updateProject } from '../utils/localStorage';
+import { getProjects, updateProject, initializeSeedData } from '../utils/localStorage';
 
 export default function EditorDashboardPage() {
   const navigate = useNavigate();
@@ -24,6 +24,7 @@ export default function EditorDashboardPage() {
         return;
       }
       setUser(userData);
+      initializeSeedData(); // Ensure we have sample data
       setProjects(getProjects());
     } catch (error) {
       console.error('Error parsing user data:', error);
@@ -37,9 +38,12 @@ export default function EditorDashboardPage() {
     navigate('/login');
   };
 
-  const handleStatusChange = (id, newStatus) => {
+  const handleStatusChange = (e, id, newStatus) => {
+    e.preventDefault();
+    e.stopPropagation();
     updateProject(id, { status: newStatus });
-    setProjects(getProjects());
+    const updatedProjects = getProjects();
+    setProjects(updatedProjects);
   };
 
   if (!user) return <div className="min-h-screen bg-gray-100 flex items-center justify-center">Loading...</div>;
@@ -85,7 +89,7 @@ export default function EditorDashboardPage() {
                 <label className="block text-xs font-bold text-gray-700 mb-2">Update Status:</label>
                 <select
                   value={project.status}
-                  onChange={(e) => handleStatusChange(project.id, e.target.value)}
+                  onChange={(e) => handleStatusChange(e, project.id, e.target.value)}
                   className="w-full px-3 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium"
                 >
                   <option value="processing">Processing</option>
