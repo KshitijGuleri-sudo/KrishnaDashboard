@@ -16,17 +16,23 @@ export default function AdminDashboardPage() {
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (!savedUser) {
-      navigate('/login');
+      navigate('/login', { replace: true });
       return;
     }
-    const userData = JSON.parse(savedUser);
-    if (userData.role !== 'admin') {
-      navigate('/login');
-      return;
+    try {
+      const userData = JSON.parse(savedUser);
+      if (userData.role !== 'admin') {
+        navigate('/login', { replace: true });
+        return;
+      }
+      setUser(userData);
+      loadProjects();
+    } catch (error) {
+      console.error('Error parsing user data:', error);
+      localStorage.removeItem('user');
+      navigate('/login', { replace: true });
     }
-    setUser(userData);
-    loadProjects();
-  }, [navigate]);
+  }, []);
 
   const loadProjects = () => {
     setProjects(getProjects());

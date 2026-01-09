@@ -14,17 +14,23 @@ export default function ClientDashboardPage() {
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (!savedUser) {
-      navigate('/login');
+      navigate('/login', { replace: true });
       return;
     }
-    const userData = JSON.parse(savedUser);
-    if (userData.role !== 'client') {
-      navigate('/login');
-      return;
+    try {
+      const userData = JSON.parse(savedUser);
+      if (userData.role !== 'client') {
+        navigate('/login', { replace: true });
+        return;
+      }
+      setUser(userData);
+      setProjects(getProjects());
+    } catch (error) {
+      console.error('Error parsing user data:', error);
+      localStorage.removeItem('user');
+      navigate('/login', { replace: true });
     }
-    setUser(userData);
-    setProjects(getProjects());
-  }, [navigate]);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
